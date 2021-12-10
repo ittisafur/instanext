@@ -1,7 +1,7 @@
-import { Fragment } from 'react'
-import Link from 'next/link'
-import { Menu, Transition } from '@headlessui/react'
-import classNames from 'classnames'
+import { Fragment } from "react";
+import Link from "next/link";
+import { Menu, Transition } from "@headlessui/react";
+import classNames from "classnames";
 
 const AppNavbar = () => {
   return (
@@ -184,8 +184,8 @@ const AppNavbar = () => {
                       {({ active }) => (
                         <div
                           className={classNames(
-                            'flex p-2 items-center space-x-2 cursor-pointer focus:outline-none',
-                            { 'bg-gray-100': active }
+                            "flex p-2 items-center space-x-2 cursor-pointer focus:outline-none",
+                            { "bg-gray-100": active }
                           )}
                         >
                           <svg
@@ -207,8 +207,8 @@ const AppNavbar = () => {
                       {({ active }) => (
                         <div
                           className={classNames(
-                            'flex p-2 items-center space-x-2 cursor-pointer focus:outline-none',
-                            { 'bg-gray-100': active }
+                            "flex p-2 items-center space-x-2 cursor-pointer focus:outline-none",
+                            { "bg-gray-100": active }
                           )}
                         >
                           <span className="text-gray-600">Logout</span>
@@ -223,7 +223,7 @@ const AppNavbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default AppNavbar
+export default AppNavbar;

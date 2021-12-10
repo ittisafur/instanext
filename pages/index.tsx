@@ -1,24 +1,11 @@
-import Head from "next/head";
-// import FullscreenLoader from "../components/FullscreenLoader";
-import Post from "../components/Post";
-import AppLayout from "../layouts/AppLayout";
+import { useState } from "react";
+import Feed from "@/screens/Feed";
+import LandingScreen from "@/screens/LandingScreen";
 
-const index = () => {
-  return (
-    <AppLayout>
-      <div className="grid max-w-6xl grid-cols-12 mx-auto">
-        <div className="col-span-7">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
-      </div>
-    </AppLayout>
-  );
+const HomePage = () => {
+  const [loggedIn] = useState(false);
+  if (loggedIn) return <Feed />;
+  return <LandingScreen />;
 };
 
-export default index;
+export default HomePage;

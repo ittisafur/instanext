@@ -6,4 +6,8 @@
   body {
     background-color: #fafafa;
   }
+
+  a {
+    @apply text-blue-medium;
+  }
 }
