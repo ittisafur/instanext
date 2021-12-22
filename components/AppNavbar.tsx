@@ -2,8 +2,16 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 import classNames from "classnames";
+import useAuth from "@/hooks/useAuth";
+import { useRouter } from "next/router";
 
 const AppNavbar = () => {
+  const {logOut, user} = useAuth();
+  const router = useRouter();
+
+  const goToProfile = () => {
+    router.push(`/${user.username}`);
+  };
   return (
     <nav className="sticky top-0 left-0 w-full bg-white border-b border-gray-primary">
       <div className="max-w-6xl mx-auto ">
@@ -165,7 +173,7 @@ const AppNavbar = () => {
                   <Menu.Button className="flex transition duration-150 ease-in-out border-gray-700 rounded-full">
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://uifaces.co/our-content/donated/3799Ffxy.jpeg"
+                      src={user?.avatar}
                       alt="user"
                     />
                   </Menu.Button>
@@ -180,7 +188,7 @@ const AppNavbar = () => {
                   leaveTo="transform opacity-0 scale-95"
                 >
                   <Menu.Items className="absolute right-0 w-56 mt-2 bg-white border rounded-md border-gray-primary focus:outline-none">
-                    <Menu.Item>
+                    <Menu.Item onClick={goToProfile}>
                       {({ active }) => (
                         <div
                           className={classNames(
@@ -203,7 +211,7 @@ const AppNavbar = () => {
                         </div>
                       )}
                     </Menu.Item>
-                    <Menu.Item onClick={() => {}}>
+                    <Menu.Item onClick={logOut}>
                       {({ active }) => (
                         <div
                           className={classNames(
